@@ -20,6 +20,7 @@ model User {
   password  String // Should be hashed in your application
   createdAt DateTime @default(now())
   books     Book[]
+  role  String  
 }
 
 model Book {
@@ -29,6 +30,6 @@ model Book {
   published Boolean  @default(false)
   isbn      String?  @unique
   createdAt DateTime @default(now())
-  userId    Int // Foreign key
+  userId    Int 
   user      User     @relation(fields: [userId], references: [id])
 }
