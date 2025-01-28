@@ -14,22 +14,24 @@ datasource db {
 }
 
 model User {
-  id        Int      @id @default(autoincrement())
+  id        String   @id @default(cuid())
   email     String   @unique
   name      String?
   password  String // Should be hashed in your application
   createdAt DateTime @default(now())
   books     Book[]
-  role  String  
+  role      String
 }
 
 model Book {
-  id        Int      @id @default(autoincrement())
+  id        String   @id @default(cuid())
   title     String
   author    String
   published Boolean  @default(false)
   isbn      String?  @unique
   createdAt DateTime @default(now())
-  userId    Int 
+  updatedAt DateTime @default(now())
+  coverImg  String
+  userId    String
   user      User     @relation(fields: [userId], references: [id])
 }
