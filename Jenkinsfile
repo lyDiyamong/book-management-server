@@ -2,7 +2,7 @@ pipeline {
     agent any
     stages {
         stage("build"){
-            // test 1
+            // test 2
             steps {
                 echo "building the application"
                 echo "Built the application"
